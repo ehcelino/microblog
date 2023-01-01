@@ -1,0 +1,19 @@
+<h1>Post: <%= @comment.title %> </h1>
+
+<dl>
+    <dt>
+      <strong>Texto: </strong><%= @comment.content %>
+    </dt>
+    <dt>
+      <strong>Criado em: </strong><%= @comment.created_at %>
+    </dt>
+    <dt>
+      <strong>Por: </strong><%= @comment.user.name %>
+    </dt>
+    <dt> 
+      <%= link_to "novo comentário", new_comment_path(id: @comment.id) %>
+    </dt>
+    <dt>
+      <%= button_to "Erase Comment", comment_path(@comment), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+    </dt>
+</dl>

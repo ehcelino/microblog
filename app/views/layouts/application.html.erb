@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Microblog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="menu">
+      <div class="item">
+        <%= link_to "Home", root_path %>
+      </div>
+      <div class="item">
+        <%= link_to "Novo comentário", new_comment_path %>
+      </div>
+      <div class="item">
+        <%= link_to "Novo usuário", new_user_path %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <%= yield %>
+  </body>
+</html>

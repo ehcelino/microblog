@@ -1,0 +1,22 @@
+<%= form_with model: @comment do |c| %>
+  <dl>
+    <dt>
+      <%= c.label 'Título'%>
+      <%= c.text_field :title %>
+    </dt>
+    <dt>
+      <%= c.label 'Texto'%>
+      <%= c.text_area :content, rows: 15, cols: 50 %>
+    </dt>
+    <dt>
+      <%= c.collection_select :user_id, User.all, :id, :name %>
+      <% if @parent %>
+        Parent: <%= @parent.id %>
+        <%= c.hidden_field :parent_id, value: @parent.id %>
+      <% end %>
+    </dt>
+    <dt>
+      <%= c.submit 'Salvar' %>
+    </dt>
+  </dl>
+<% end %>
